@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -27,6 +27,10 @@ form = """
             h1{
                 text-align: center;
             }
+            body{
+                background-color: #539BE8;
+
+            }
         </style>
     </head>
     <body>
@@ -38,7 +42,7 @@ form = """
             <input type='text' name='rot' / >
         </label>
         <input type='textarea' name='text' />
-        <input type='submit' value='Encrypt' />
+        <input type='submit' value='Encrypt!' />
 
       </form>
       
