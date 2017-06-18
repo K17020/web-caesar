@@ -60,7 +60,7 @@ def encrypt():
 
     encrypted_message = rotate_string(str(message), int(rotate_amount))
 
-    return encrypted_message
+    return '<h1>' + encrypted_message + '</h1>'
 
 @app.route('/')
 #displays message on the screen 
