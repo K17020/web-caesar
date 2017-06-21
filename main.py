@@ -20,31 +20,21 @@ form = """
                 font: 16px sans-serif;
                 border-radius: 10px;
             }
-            .textarea {
+            textarea {
                 margin: 10px 0;
                 width: 540px;
                 height: 120px;
-            }
-            header h1{
-                text-align: center;
-            }
-            body{
-                background-color: #539BE8;
-
             }
         </style>
     </head>
     <body>
       <!-- create your form here -->
-        <header>
-            <h1>Web Caesar</h1>
-        </header>
       <form method='post'>
         <label>
             Rotate by:
-            <input type='text' name='rot' / >
+            <input type='text' name='rot' value='0' / >
         </label>
-        <input class='textarea' type='textarea' name='text' />
+        <textarea type='text' name='text'></textarea>
         <input type='submit' value='Encrypt Message!' />
 
       </form>
@@ -54,15 +44,14 @@ form = """
 
 """
 @app.route('/', methods=['POST'])
-#Process the from
+# Process the from
 def encrypt():
-    
     rotate_amount = request.form['rot']
     message = request.form['text']
 
     encrypted_message = rotate_string(str(message), int(rotate_amount))
 
-    return '<h1>' + encrypted_message + '</h1>'
+    return form.format(encrypted_message)
 
 @app.route('/')
 #displays message on the screen 
